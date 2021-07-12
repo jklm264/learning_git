@@ -34,6 +34,8 @@ All of this was from https://www.youtube.com/watch?v=r_27MKuA9dY
 
 ### Method 2
 
+Assumed you already have done `$git add` and `$git commit` for features on local feature branch.
+
 - git checkout master
 - git pull # Update local master to remote master
 - git checkout feature # Switch back to feature branch
