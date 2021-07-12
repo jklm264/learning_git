@@ -17,7 +17,10 @@ Source: https://www.youtube.com/watch?v=CRlGDDprdOQ
 
 Purpose: Manually "merge" changes into a single branch. Commits of feature branch will show in commit history of master (unlike with $git merge).
 
-- Git conflict resolution - from second branch when ready to push:
+### Method 1
+
+Git conflict resolution - from second branch when ready to push:
+
 - Git commit -m “msg”
 - Git push origin master # Will give error: failed to push some refs….current branch is behind its remote counterpart.
 - Git pull --rebase origin master # Will give “CONFLICT (content): Merge conflict”
@@ -28,5 +31,17 @@ Purpose: Manually "merge" changes into a single branch. Commits of feature branc
 - Git push origin master
 
 All of this was from https://www.youtube.com/watch?v=r_27MKuA9dY
+
+### Method 2
+
+- git checkout master
+- git pull # Update local master to remote master
+- git checkout feature # Switch back to feature branch
+- git rebase master # "Re-anchor" feature branch against latest changes. If conflicts arise will do vimdiff (I think)
+- git checkout master # switch back to master
+- git rebase feature # Take commits from local feature branch and overlay on local master
+- git push # Take commits on local master and move to remote master
+
+Source: https://www.youtube.com/watch?v=f1wnYdLEpgI
 
 Differences are enumerated here: https://stackoverflow.com/a/804156/5540115
